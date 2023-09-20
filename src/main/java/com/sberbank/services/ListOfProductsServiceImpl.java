@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 /**
  * @author Anna Ermachenkova
  */
 @Service
-public class ListOfProductsServiceImpl implements ListOfProductsService{
+public class ListOfProductsServiceImpl implements ListOfProductsService {
 
     private final ListOfProductsRepository listOfProductsRepository;
 

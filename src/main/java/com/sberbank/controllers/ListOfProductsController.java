@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 /**
  * @author Anna Ermachenkova
  */
@@ -34,16 +35,19 @@ public class ListOfProductsController {
         log.info("Получаем список продуктов");
         return new ResponseEntity<>(listOfProductsService.getListOfProducts(listOfProductsId), HttpStatus.OK);
     }
+
     @PostMapping
-    public ResponseEntity<ListOfProducts> createListOfProducts(@RequestBody ListOfProducts listOfProducts){
+    public ResponseEntity<ListOfProducts> createListOfProducts(@RequestBody ListOfProducts listOfProducts) {
         log.info("Создаем список продуктов");
         return new ResponseEntity<>(listOfProductsService.createListOfProducts(listOfProducts), HttpStatus.CREATED);
     }
+
     @PutMapping
     public ResponseEntity<ListOfProducts> updateListOfProducts(@RequestBody ListOfProducts listOfProducts) {
         log.info("Обновляем список продуктов");
         return new ResponseEntity<>(listOfProductsService.updateListOfProducts(listOfProducts), HttpStatus.OK);
     }
+
     @DeleteMapping
     public ResponseEntity<Void> deleteListOfProducts(String listOfProductsId) {
         log.info("Удаляем список продуктов");
