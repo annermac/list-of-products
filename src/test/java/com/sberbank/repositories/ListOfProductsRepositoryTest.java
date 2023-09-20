@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * @author Anna Ermachenkova
  */
@@ -20,6 +21,7 @@ class ListOfProductsRepositoryTest {
     private ListOfProductsRepository listOfProductsRepository;
     private ListOfProducts listOfProducts1;
     private ListOfProducts listOfProducts2;
+
     @BeforeEach
     public void setUp() {
         listOfProducts1 = new ListOfProducts(null, "Салат");
@@ -28,6 +30,7 @@ class ListOfProductsRepositoryTest {
         listOfProductsRepository.save(listOfProducts2);
 
     }
+
     @Test
     public void testGetAllListOfProducts() {
         List<ListOfProducts> listOfProductsList = listOfProductsRepository.findAll();
@@ -43,7 +46,7 @@ class ListOfProductsRepositoryTest {
     }
 
     @Test
-    public void testCreateListOfProducts(){
+    public void testCreateListOfProducts() {
         ListOfProducts newListOfProducts = new ListOfProducts(null, "Яблочный пирог");
         ListOfProducts savedListOfProducts = listOfProductsRepository.save(newListOfProducts);
         assertNotNull(savedListOfProducts.getId());
@@ -58,6 +61,7 @@ class ListOfProductsRepositoryTest {
         assertEquals(listOfProductsToUpdate.getId(), updatedListOfProducts.getId());
         assertEquals(listOfProductsToUpdate.getName(), updatedListOfProducts.getName());
     }
+
     @Test
     public void testDeleteListOfProducts() {
         listOfProductsRepository.deleteById(listOfProducts1.getId());

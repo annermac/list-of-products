@@ -9,7 +9,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * @author Anna Ermachenkova
  */
@@ -21,6 +23,7 @@ class ProductRepositoryTest {
     private Product product1;
     private Product product2;
     private ListOfProducts listOfProducts;
+
     @BeforeEach
     public void setUp() {
         listOfProducts = new ListOfProducts(null, "Салат");
@@ -30,6 +33,7 @@ class ProductRepositoryTest {
         productRepository.save(product2);
 
     }
+
     @Test
     public void testGetAllProducts() {
         List<Product> products = productRepository.findAll();
@@ -51,7 +55,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    public void testCreateProduct(){
+    public void testCreateProduct() {
         Product newProduct = new Product(null, "Картофель", "1500", "Описание 3", null);
         Product savedProduct = productRepository.save(newProduct);
         assertNotNull(savedProduct.getId());
@@ -72,6 +76,7 @@ class ProductRepositoryTest {
         assertEquals(productToUpdate.getWeight(), updatedProduct.getWeight());
         assertEquals(productToUpdate.getDescription(), updatedProduct.getDescription());
     }
+
     @Test
     public void testDeleteProduct() {
         productRepository.deleteById(product1.getId());
